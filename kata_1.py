@@ -1,5 +1,5 @@
 def kata_1(seq):
-    result = read_rpn(seq)
+    result = read_rpn(seq.split(' '))
     return result
 
 def kata_input():
@@ -16,6 +16,7 @@ def read_rpn(seq):
         except:
             if (i == "+") or (i == "-") or (i == "*") or (i == "/"):
                 stack = basic_op(stack, i)
+    print(stack)
     return stack
 
             
@@ -31,3 +32,5 @@ def basic_op(stack, op):
             if stack[i] != 0:
                 stack[0] = stack[0] / stack[i]
     return stack[:1]
+
+kata_1("20 20 20 +")
