@@ -16,8 +16,7 @@ def read_rpn(seq):
         except:
             if (i == "+") or (i == "-") or (i == "*") or (i == "/"):
                 stack = basic_op(stack, i)
-    print(stack)
-    return stack
+    return stack[0]
 
             
 def basic_op(stack, op):
