@@ -1,11 +1,11 @@
-def kata_1():
-    seq = kata_input()
+def kata_1(seq):
     result = read_rpn(seq)
+    return result
 
 def kata_input():
     seq = input("input your RPN code here: ")
     seq = seq.split(' ')
-    return seq
+    kata_1(seq)
 
 def read_rpn(seq):
     stack = []
@@ -16,6 +16,7 @@ def read_rpn(seq):
         except:
             if (i == "+") or (i == "-") or (i == "*") or (i == "/"):
                 stack = basic_op(stack, i)
+    return stack
 
             
 def basic_op(stack, op):
@@ -30,6 +31,3 @@ def basic_op(stack, op):
             if stack[i] != 0:
                 stack[0] = stack[0] / stack[i]
     return stack[:1]
-        
-
-kata_1()
